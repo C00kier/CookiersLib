@@ -1,6 +1,7 @@
 package pawel.cookier.ignaczak.cookierslib;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import pawel.cookier.ignaczak.cookierslib.inventory.InventoryUtility;
 import pawel.cookier.ignaczak.cookierslib.items.ItemCreator;
 import pawel.cookier.ignaczak.cookierslib.items.ItemManager;
 import pawel.cookier.ignaczak.cookierslib.position.PositionUtility;
@@ -12,6 +13,8 @@ public final class CookiersLib extends JavaPlugin {
     private ItemCreator itemCreator;
     private PositionUtility positionUtility;
     private ValidationUtility validationUtility;
+    private InventoryUtility inventoryUtility;
+
 
     @Override
     public void onEnable() {
@@ -19,6 +22,7 @@ public final class CookiersLib extends JavaPlugin {
         itemCreator = new ItemCreator(itemManager);
         positionUtility = new PositionUtility();
         validationUtility = new ValidationUtility();
+        inventoryUtility = new InventoryUtility();
 
         getLogger().info("CookiersLib: enabled");
     }
@@ -46,5 +50,9 @@ public final class CookiersLib extends JavaPlugin {
 
     public ValidationUtility getValidationUtility() {
         return this.validationUtility;
+    }
+
+    public InventoryUtility getInventoryUtility() {
+        return inventoryUtility;
     }
 }
