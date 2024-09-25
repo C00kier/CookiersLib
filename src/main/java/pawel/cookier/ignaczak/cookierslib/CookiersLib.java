@@ -1,6 +1,7 @@
 package pawel.cookier.ignaczak.cookierslib;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import pawel.cookier.ignaczak.cookierslib.commands.CommandsUtility;
 import pawel.cookier.ignaczak.cookierslib.inventory.InventoryUtility;
 import pawel.cookier.ignaczak.cookierslib.items.ItemCreator;
 import pawel.cookier.ignaczak.cookierslib.items.ItemManager;
@@ -14,6 +15,7 @@ public final class CookiersLib extends JavaPlugin {
     private PositionUtility positionUtility;
     private ValidationUtility validationUtility;
     private InventoryUtility inventoryUtility;
+    private CommandsUtility commandsUtility;
 
 
     @Override
@@ -23,6 +25,7 @@ public final class CookiersLib extends JavaPlugin {
         positionUtility = new PositionUtility();
         validationUtility = new ValidationUtility();
         inventoryUtility = new InventoryUtility();
+        commandsUtility = new CommandsUtility();
 
         getLogger().info("CookiersLib: enabled");
     }
@@ -32,7 +35,7 @@ public final class CookiersLib extends JavaPlugin {
         getLogger().info("CookiersLib: disabled");
     }
 
-    public CookiersLib getInstance(){
+    public CookiersLib getInstance() {
         return this;
     }
 
@@ -54,5 +57,9 @@ public final class CookiersLib extends JavaPlugin {
 
     public InventoryUtility getInventoryUtility() {
         return inventoryUtility;
+    }
+
+    public CommandsUtility getCommandsUtility() {
+        return commandsUtility;
     }
 }
