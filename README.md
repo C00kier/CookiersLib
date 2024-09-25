@@ -1,4 +1,4 @@
-## Minecraft [1.19.4] CookiersLib 1.0.2
+## CookiersLib 1.0.2
 
 It is a library containing the most frequently repeated functions during my adventure with writing plugins.
 
