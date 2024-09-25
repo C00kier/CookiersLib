@@ -8,6 +8,7 @@ import pawel.cookier.ignaczak.cookierslib.position.PositionUtility;
 import pawel.cookier.ignaczak.cookierslib.validation.ValidationUtility;
 
 public final class CookiersLib {
+    private static CookiersLib instance;
 
     private final ItemManager itemManager;
     private final ItemCreator itemCreator;
@@ -16,7 +17,7 @@ public final class CookiersLib {
     private final InventoryUtility inventoryUtility;
     private final CommandsUtility commandsUtility;
 
-    public CookiersLib() {
+    private CookiersLib() {
         this.itemManager = new ItemManager();
         this.itemCreator = new ItemCreator(itemManager);
         this.positionUtility = new PositionUtility();
@@ -25,7 +26,13 @@ public final class CookiersLib {
         this.commandsUtility = new CommandsUtility();
     }
 
-    // Getter methods for your utilities
+    public static CookiersLib getInstance() {
+        if (instance == null) {
+            instance = new CookiersLib();
+        }
+        return instance;
+    }
+
     public ItemManager getItemManager() {
         return this.itemManager;
     }
