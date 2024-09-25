@@ -4,4 +4,6 @@ import org.bukkit.entity.Player;
 
 public interface IInventoryUtility{
     boolean hasEmptyInventorySlot(Player player);
+
+    Integer getFirstEmptySlotIndex(Player player);
 }
