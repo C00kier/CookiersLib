@@ -6,12 +6,11 @@ public final class CookiersLib extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
-
+        getLogger().info("CookiersLib: enabled");
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        getLogger().info("CookiersLib: disabled");
     }
 }
