@@ -1,4 +1,4 @@
-## Minecraft [1.19.4] CookiersLib
+## Minecraft [1.19.4] CookiersLib 1.0.2
 
 It is a library containing the most frequently repeated functions during my adventure with writing plugins.
 
@@ -6,6 +6,7 @@ It is a library containing the most frequently repeated functions during my adve
 
 #### Inventory utilities:
 - check if player has empty slot in inventory
+- find index of first empty slot in inventory
 
 #### Position utilities:
 - get set of players that are in radius of passed location
