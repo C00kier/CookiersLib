@@ -3,7 +3,7 @@ package pawel.cookier.ignaczak.cookierslib.position;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
-import pawel.cookier.ignaczak.cookierslib.repositories.IPositionUtility;
+import pawel.cookier.ignaczak.cookierslib.repositories.position.IPositionUtility;
 
 import java.util.HashSet;
 

@@ -7,7 +7,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
-import pawel.cookier.ignaczak.cookierslib.repositories.IItemManager;
+import pawel.cookier.ignaczak.cookierslib.repositories.items.IItemManager;
 
 import java.util.Map;
 

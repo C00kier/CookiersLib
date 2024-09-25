@@ -1,4 +1,4 @@
-package pawel.cookier.ignaczak.cookierslib.repositories;
+package pawel.cookier.ignaczak.cookierslib.repositories.position;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

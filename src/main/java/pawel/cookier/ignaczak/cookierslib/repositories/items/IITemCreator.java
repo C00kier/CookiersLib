@@ -1,4 +1,4 @@
-package pawel.cookier.ignaczak.cookierslib.repositories;
+package pawel.cookier.ignaczak.cookierslib.repositories.items;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
