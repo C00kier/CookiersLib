@@ -1,6 +1,5 @@
 package pawel.cookier.ignaczak.cookierslib;
 
-import org.bukkit.plugin.java.JavaPlugin;
 import pawel.cookier.ignaczak.cookierslib.commands.CommandsUtility;
 import pawel.cookier.ignaczak.cookierslib.inventory.InventoryUtility;
 import pawel.cookier.ignaczak.cookierslib.items.ItemCreator;
@@ -8,37 +7,25 @@ import pawel.cookier.ignaczak.cookierslib.items.ItemManager;
 import pawel.cookier.ignaczak.cookierslib.position.PositionUtility;
 import pawel.cookier.ignaczak.cookierslib.validation.ValidationUtility;
 
-public final class CookiersLib extends JavaPlugin {
+public final class CookiersLib {
 
-    private ItemManager itemManager;
-    private ItemCreator itemCreator;
-    private PositionUtility positionUtility;
-    private ValidationUtility validationUtility;
-    private InventoryUtility inventoryUtility;
-    private CommandsUtility commandsUtility;
+    private final ItemManager itemManager;
+    private final ItemCreator itemCreator;
+    private final PositionUtility positionUtility;
+    private final ValidationUtility validationUtility;
+    private final InventoryUtility inventoryUtility;
+    private final CommandsUtility commandsUtility;
 
-
-    @Override
-    public void onEnable() {
-        itemManager = new ItemManager();
-        itemCreator = new ItemCreator(itemManager);
-        positionUtility = new PositionUtility();
-        validationUtility = new ValidationUtility();
-        inventoryUtility = new InventoryUtility();
-        commandsUtility = new CommandsUtility();
-
-        getLogger().info("CookiersLib: enabled");
+    public CookiersLib() {
+        this.itemManager = new ItemManager();
+        this.itemCreator = new ItemCreator(itemManager);
+        this.positionUtility = new PositionUtility();
+        this.validationUtility = new ValidationUtility();
+        this.inventoryUtility = new InventoryUtility();
+        this.commandsUtility = new CommandsUtility();
     }
 
-    @Override
-    public void onDisable() {
-        getLogger().info("CookiersLib: disabled");
-    }
-
-    public CookiersLib getInstance() {
-        return this;
-    }
-
+    // Getter methods for your utilities
     public ItemManager getItemManager() {
         return this.itemManager;
     }
@@ -56,7 +43,7 @@ public final class CookiersLib extends JavaPlugin {
     }
 
     public InventoryUtility getInventoryUtility() {
-        return inventoryUtility;
+        return this.inventoryUtility;
     }
 
     public CommandsUtility getCommandsUtility() {
