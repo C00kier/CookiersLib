@@ -27,4 +27,7 @@ It is a library containing the most frequently repeated functions during my adve
 - check if the sound is valid
 - check if the args have correct quantity
 
+#### Commands Utilities
+- register commands with tab completer
+
 ### Licence: MIT
