@@ -1,0 +1,4 @@
+name: cookiersLib
+version: '${project.version}'
+main: pawel.cookier.ignaczak.cookierslib.CookiersLib
+api-version: '1.19'
