@@ -23,7 +23,7 @@ It is a library containing the most frequently repeated functions during my adve
 - check if lore is valid
 - check if the string value is valid
 - check if double is positive or zero
-- chceck if int is positive or zero
+- check if int is positive or zero
 - check if the sound is valid
 - check if the args have correct quantity
 
