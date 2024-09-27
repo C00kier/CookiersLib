@@ -7,8 +7,7 @@ import pawel.cookier.ignaczak.cookierslib.items.ItemManager;
 import pawel.cookier.ignaczak.cookierslib.position.PositionUtility;
 import pawel.cookier.ignaczak.cookierslib.validation.ValidationUtility;
 
-public final class CookiersLib {
-    private static CookiersLib instance;
+public class CookiersLib {
 
     private final ItemManager itemManager;
     private final ItemCreator itemCreator;
@@ -24,13 +23,6 @@ public final class CookiersLib {
         this.validationUtility = new ValidationUtility();
         this.inventoryUtility = new InventoryUtility();
         this.commandsUtility = new CommandsUtility();
-    }
-
-    public static CookiersLib getInstance() {
-        if (instance == null) {
-            instance = new CookiersLib();
-        }
-        return instance;
     }
 
     public ItemManager getItemManager() {
