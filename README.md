@@ -39,8 +39,11 @@ CookiersLib cookiersLib = new CookiersLib();
 
 ### How to use utilities?
 eg. i want to get to use function for creating item so after lib initialization i can simply write:
+<br>
+<br>
 cookiersLib.getItemCreator().createCustomItem(...);
 
+### Known issues
 If you have problem with server error "Plugin is already initialized" take care of your maven shading.
 Simply add this code beetwen <execution> brackets in your maven-shade-plugin in pom.xml:
 
@@ -66,5 +69,7 @@ Simply add this code beetwen <execution> brackets in your maven-shade-plugin in 
 ### Licence: MIT
 
 #### How to add (click on icon below) 
-versions below 1.0.3 may contain some issues
+versions below 1.0.3 may produce some issues
+<br>
+<br>
 [![](https://jitpack.io/v/C00kier/CookiersLib.svg)](https://jitpack.io/#C00kier/CookiersLib)
