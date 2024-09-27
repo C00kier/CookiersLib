@@ -1,4 +1,4 @@
-## CookiersLib 1.0.2a
+## CookiersLib 1.0.3
 
 It is a library containing the most frequently repeated functions during my adventure with writing plugins.
 
@@ -7,6 +7,7 @@ It is a library containing the most frequently repeated functions during my adve
 #### Inventory utilities:
 - check if player has empty slot in inventory
 - find index of first empty slot in inventory
+- find index of itemStack in players inventory
 
 #### Position utilities:
 - get set of players that are in radius of passed location
