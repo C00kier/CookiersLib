@@ -66,4 +66,5 @@ Simply add this code beetwen <execution> brackets in your maven-shade-plugin in 
 ### Licence: MIT
 
 #### How to add (click on icon below) 
+versions below 1.0.3 may contain some issues
 [![](https://jitpack.io/v/C00kier/CookiersLib.svg)](https://jitpack.io/#C00kier/CookiersLib)
