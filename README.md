@@ -32,6 +32,37 @@ It is a library containing the most frequently repeated functions during my adve
 #### Commands Utilities
 - register commands with tab completer
 
+## How to use
+Just paste this code into your project and you will have access to all utilities
+
+CookiersLib cookiersLib = new CookiersLib();
+
+### How to use utilities?
+eg. i want to get to use function for creating item so after lib initialization i can simply write:
+cookiersLib.getItemCreator().createCustomItem(...);
+
+If you have problem with server error "Plugin is already initialized" take care of your maven shading.
+Simply add this code beetwen <execution> brackets in your maven-shade-plugin in pom.xml:
+
+                      <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>pawel.cookier.ignaczak:CookiersLib</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/MANIFEST.MF</exclude>
+                                        <exclude>plugin.yml</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+
+                    
 ### Licence: MIT
 
 #### How to add (click on icon below) 
