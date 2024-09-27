@@ -16,7 +16,7 @@ public class CookiersLib {
     private final InventoryUtility inventoryUtility;
     private final CommandsUtility commandsUtility;
 
-    private CookiersLib() {
+    public CookiersLib() {
         this.itemManager = new ItemManager();
         this.itemCreator = new ItemCreator(itemManager);
         this.positionUtility = new PositionUtility();
