@@ -33,3 +33,6 @@ It is a library containing the most frequently repeated functions during my adve
 - register commands with tab completer
 
 ### Licence: MIT
+
+#### How to add (click on icon below) 
+[![](https://jitpack.io/v/C00kier/CookiersLib.svg)](https://jitpack.io/#C00kier/CookiersLib)
