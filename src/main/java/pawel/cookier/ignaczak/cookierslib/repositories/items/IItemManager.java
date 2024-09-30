@@ -15,4 +15,8 @@ public interface IItemManager {
     String getNamespacedKeyValueFromItemStack(JavaPlugin plugin, ItemStack itemStack, String key);
 
     boolean doesItemStackContainsValueForNamespacedKey(JavaPlugin plugin, ItemStack itemStack, String key, String value);
+
+    void setDisplayName(ItemStack itemStack, String displayName);
+
+    void setEmptyStringAsDisplayName(ItemStack itemStack);
 }

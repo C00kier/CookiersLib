@@ -1,5 +1,6 @@
 package pawel.cookier.ignaczak.cookierslib.items;
 
+import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
@@ -53,6 +54,21 @@ public class ItemManager implements IItemManager {
         if (keyValue == null) return false;
 
         return keyValue.equals(value);
+    }
+
+    @Override
+    public void setDisplayName(ItemStack itemStack, String displayName) {
+        ItemMeta meta = itemStack.getItemMeta();
+
+        if (meta != null) {
+            meta.setDisplayName(displayName);
+            itemStack.setItemMeta(meta);
+        }
+    }
+
+    @Override
+    public void setEmptyStringAsDisplayName(ItemStack itemStack){
+        setDisplayName(itemStack, ChatColor.DARK_GRAY + "");
     }
 
 }
