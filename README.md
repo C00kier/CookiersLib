@@ -1,4 +1,4 @@
-## CookiersLib 1.0.3
+## CookiersLib 1.0.4
 
 It is a library containing the most frequently repeated functions during my adventure with writing plugins.
 
@@ -20,6 +20,8 @@ It is a library containing the most frequently repeated functions during my adve
 - add namespaced key to item meta
 - get namespaced key value from item
 - check if item has specific value for specific namespaced key
+- set item display name
+- set empty item display name 
 
 #### Validation utilities:
 - check if lore is valid
