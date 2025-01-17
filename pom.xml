@@ -6,7 +6,7 @@
 
     <groupId>Pawel.cookier.ignaczak</groupId>
     <artifactId>cookiersLib</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <packaging>jar</packaging>
 
     <name>cookiersLib</name>
