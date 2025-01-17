@@ -1,6 +1,7 @@
 package pawel.cookier.ignaczak.cookierslib.repositories.inventory;
 
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 public interface IInventoryUtility{
@@ -9,4 +10,6 @@ public interface IInventoryUtility{
     Integer getFirstEmptySlotIndex(Player player);
 
     Integer getSlotIndexBasedOnItemStack(Player player, ItemStack targetItem);
+
+    void populateInventoryWithItemStack(Inventory inventory, ItemStack itemStack);
 }

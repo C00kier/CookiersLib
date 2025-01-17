@@ -54,4 +54,11 @@ public class InventoryUtility implements IInventoryUtility {
 
         return null;
     }
+
+    @Override
+    public void populateInventoryWithItemStack(Inventory inventory, ItemStack itemStack){
+        for (int i = 0; i < inventory.getSize(); i++) {
+            inventory.setItem(i, itemStack);
+        }
+    }
 }
