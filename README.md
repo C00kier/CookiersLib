@@ -42,7 +42,7 @@ It is a library containing the most frequently repeated functions during my adve
 
 #### Yaml config utilities (FileConfiguration Object utilities)
 - function for colorize String via config with usage of "&" sign
-- function for colorize List<String> via config with usage of "&" sign
+- function for colorize List of Stings via config with usage of "&" sign
 
 ## How to use
 Just paste this code into your project and you will have access to all utilities
