@@ -1,4 +1,4 @@
-## CookiersLib 1.0.5
+## CookiersLib 1.0.6
 
 It is a library containing the most frequently repeated functions during my adventure with writing plugins.
 
@@ -39,6 +39,10 @@ It is a library containing the most frequently repeated functions during my adve
 
 #### Commands Utilities
 - register commands with tab completer
+
+#### Yaml config utilities (FileConfiguration Object utilities)
+- function for colorize String via config with usage of "&" sign
+- function for colorize List of Stings via config with usage of "&" sign
 
 ## How to use
 Just paste this code into your project and you will have access to all utilities
