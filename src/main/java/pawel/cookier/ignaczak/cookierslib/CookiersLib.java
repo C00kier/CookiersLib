@@ -6,6 +6,7 @@ import pawel.cookier.ignaczak.cookierslib.items.ItemCreator;
 import pawel.cookier.ignaczak.cookierslib.items.ItemManager;
 import pawel.cookier.ignaczak.cookierslib.position.PositionUtility;
 import pawel.cookier.ignaczak.cookierslib.validation.ValidationUtility;
+import pawel.cookier.ignaczak.cookierslib.yamlConfig.YamlMessageUtility;
 
 public class CookiersLib {
 
@@ -15,6 +16,7 @@ public class CookiersLib {
     private final ValidationUtility validationUtility;
     private final InventoryUtility inventoryUtility;
     private final CommandsUtility commandsUtility;
+    private final YamlMessageUtility yamlMessageUtility;
 
     public CookiersLib() {
         this.itemManager = new ItemManager();
@@ -23,6 +25,11 @@ public class CookiersLib {
         this.validationUtility = new ValidationUtility();
         this.inventoryUtility = new InventoryUtility();
         this.commandsUtility = new CommandsUtility();
+        this.yamlMessageUtility = new YamlMessageUtility();
+    }
+
+    public YamlMessageUtility getYamlMessageUtility() {
+        return yamlMessageUtility;
     }
 
     public ItemManager getItemManager() {
