@@ -15,7 +15,7 @@ public class YamlMessageUtility implements IYamlMessageUtility {
             throw new IllegalStateException("YamlMessageUtility: FileConfiguration has not been set!");
         }
 
-        String errorMessage = ("[%s] config key not found").formatted(key);
+        String errorMessage = String.format("[%s] config key not found",key);
         String configMessage = config.getString(key, errorMessage);
         return ChatColor.translateAlternateColorCodes('&', configMessage);
     }

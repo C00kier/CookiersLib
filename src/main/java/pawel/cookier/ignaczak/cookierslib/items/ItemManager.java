@@ -89,7 +89,7 @@ public class ItemManager implements IItemManager {
 
     @Override
     public void setEmptyStringAsDisplayName(ItemStack itemStack) {
-        setDisplayNameToItemStack(itemStack, ChatColor.DARK_GRAY + "");
+        setDisplayNameToItemStack(itemStack, String.valueOf(ChatColor.DARK_GRAY));
     }
 
     @Override
