@@ -12,28 +12,14 @@ public class InventoryUtility implements IInventoryUtility {
     public boolean hasEmptyInventorySlot(Player player) {
         Inventory inventory = player.getInventory();
 
-        for (int i = 0; i < 36; i++) {
-            ItemStack item = inventory.getItem(i);
-            if (item == null || item.getType().isAir()) {
-                return true;
-            }
-        }
-
-        return false;
+        return inventory.firstEmpty() != -1;
     }
 
     @Override
     public Integer getFirstEmptySlotIndex(Player player) {
         Inventory inventory = player.getInventory();
 
-        for (int i = 0; i < 36; i++) {
-            ItemStack item = inventory.getItem(i);
-            if (item == null || item.getType().isAir()) {
-                return i;
-            }
-        }
-
-        return null;
+        return inventory.firstEmpty();
     }
 
     @Override
