@@ -33,7 +33,7 @@ public class ItemCreator implements IITemCreator {
         ItemMeta meta = item.getItemMeta();
 
 
-        if (amount > 1) {
+        if (amount != null) {
             item.setAmount(amount);
         }
 
@@ -45,19 +45,24 @@ public class ItemCreator implements IITemCreator {
             meta.setDisplayName(name);
         }
 
-        if (lore.size() > 0) {
+        if (lore != null) {
             meta.setLore(lore);
         }
 
-        if (enchantmentsWithLevels.size() > 0) {
-            itemManager.applyEnchantmentsToItemMeta(meta, enchantmentsWithLevels);
+        if(enchantmentsWithLevels != null) {
+            if (enchantmentsWithLevels.size() > 0) {
+                itemManager.applyEnchantmentsToItemMeta(meta, enchantmentsWithLevels);
+            }
         }
 
         if (namespacedKey != null && namespacedValue != null && yourPlugin != null) {
             itemManager.addNamespacedKeyStringToItemMeta(yourPlugin, meta, namespacedKey, namespacedValue);
         }
 
-        meta.setCustomModelData(customModelId);
+        if(customModelId != null){
+            meta.setCustomModelData(customModelId);
+        }
+
         item.setItemMeta(meta);
 
         return item;
