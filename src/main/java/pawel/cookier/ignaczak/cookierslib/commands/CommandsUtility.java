@@ -62,6 +62,14 @@ public class CommandsUtility implements ICommandsUtility {
                     List<String> result = tabCompleter.onTabComplete(sender, this, alias, args);
                     return result == null ? new ArrayList<>() : result;
                 }
+
+                @Override
+                public boolean testPermissionSilent(@NotNull CommandSender sender) {
+                    if (permissions != null && !permissions.isEmpty()) {
+                        return permissions.stream().anyMatch(sender::hasPermission);
+                    }
+                    return true;
+                }
             };
 
             commandMap.register(pluginPrefix, command);
