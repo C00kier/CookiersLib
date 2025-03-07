@@ -1,4 +1,4 @@
-## CookiersLib 1.0.9
+## CookiersLib 1.0.9a
 
 It is a library containing the most frequently repeated functions during my adventure with writing plugins.
 
@@ -51,6 +51,13 @@ It is a library containing the most frequently repeated functions during my adve
 
 ## Models
 - Custom config model
+
+
+    functions:
+      - load config
+      - get config
+      - save config
+      - reload config
 
 ## How to use
 Just paste this code into your project and you will have access to all utilities

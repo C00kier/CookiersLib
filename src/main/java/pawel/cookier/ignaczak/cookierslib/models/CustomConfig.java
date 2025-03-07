@@ -18,7 +18,7 @@ public class CustomConfig {
         this.fileName = fileName;
     }
 
-    public void initializeConfig() {
+    public void loadConfig() {
         if (fileName.equalsIgnoreCase("config.yml")) {
             plugin.saveDefaultConfig();
             this.config = plugin.getConfig();
