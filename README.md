@@ -1,4 +1,4 @@
-## CookiersLib 1.0.8a
+## CookiersLib 1.0.9
 
 It is a library containing the most frequently repeated functions during my adventure with writing plugins.
 
@@ -46,6 +46,12 @@ It is a library containing the most frequently repeated functions during my adve
 - function for colorize String via config with usage of "&" sign
 - function for colorize List of Stings via config with usage of "&" sign
 
+#### World Utilities
+- check if player is in world with keepInventory set true
+
+## Models
+- Custom config model
+
 ## How to use
 Just paste this code into your project and you will have access to all utilities
 
@@ -56,6 +62,12 @@ eg. i want to get to use function for creating item so after lib initialization 
 <br>
 <br>
 cookiersLib.getItemCreator().createCustomItem(...);
+
+### How to use models?
+CustomConfig config = new CustomConfig(plugin, fileName);
+
+It will create config with fileName into plugin folder.
+Simply add fileName.yaml to project resources and you are ready to go!
 
 ### Licence: MIT
 
