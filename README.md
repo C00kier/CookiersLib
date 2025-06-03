@@ -1,4 +1,4 @@
-## CookiersLib 1.0.9a
+## CookiersLib 1.0.9b
 
 It is a library containing the most frequently repeated functions during my adventure with writing plugins.
 
@@ -50,14 +50,7 @@ It is a library containing the most frequently repeated functions during my adve
 - check if player is in world with keepInventory set true
 
 ## Models
-- Custom config model
-
-
-    functions:
-      - load config
-      - get config
-      - save config
-      - reload config
+- CustomConfig model
 
 ## How to use
 Just paste this code into your project and you will have access to all utilities
