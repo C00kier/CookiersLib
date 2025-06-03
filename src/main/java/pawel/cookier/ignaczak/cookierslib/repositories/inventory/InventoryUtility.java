@@ -1,5 +1,6 @@
 package pawel.cookier.ignaczak.cookierslib.repositories.inventory;
 
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -14,4 +15,8 @@ public interface InventoryUtility {
     void populateInventoryWithItemStack(Inventory inventory, ItemStack itemStack);
 
     void populateEmptySpacesWithItemStack(Inventory inventory, ItemStack itemStack);
+
+    boolean hasEnoughMaterialInInventory(Player player, Material material, int neededAmount);
+
+    void removeMaterialFromInventory(Player player, Material material, int amountToRemove);
 }

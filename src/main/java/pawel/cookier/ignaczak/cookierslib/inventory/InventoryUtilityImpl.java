@@ -50,4 +50,42 @@ public class InventoryUtilityImpl implements InventoryUtility {
             inventory.setItem(i, itemStack);
         }
     }
+
+    @Override
+    public boolean hasEnoughMaterialInInventory(Player player, Material material, int neededAmount) {
+        int totalAmount = 0;
+        for (ItemStack item : player.getInventory().getContents()) {
+            if (item == null || item.getType() != material) continue;
+
+            totalAmount += item.getAmount();
+            if (totalAmount >= neededAmount) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void removeMaterialFromInventory(Player player, Material material, int amountToRemove) {
+        ItemStack[] contents = player.getInventory().getContents();
+
+        for (int i = 0; i < contents.length; i++) {
+            ItemStack item = contents[i];
+
+            if (item != null && item.getType() == material) {
+                int stackAmount = item.getAmount();
+
+                if (stackAmount <= amountToRemove) {
+                    amountToRemove -= stackAmount;
+                    contents[i] = null;
+                } else {
+                    item.setAmount(stackAmount - amountToRemove);
+                    break;
+                }
+            }
+        }
+
+        player.getInventory().setContents(contents);
+        player.updateInventory();
+    }
 }
