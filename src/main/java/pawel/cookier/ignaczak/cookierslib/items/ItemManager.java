@@ -37,44 +37,62 @@ public class ItemManager implements IItemManager {
     }
 
     @Override
-    public void addNamespacedKeyStringToItemMeta(JavaPlugin plugin, ItemMeta meta, String key, String value) {
+    public <T, Z> void addNamespacedKeyToItemMeta(
+            JavaPlugin plugin,
+            ItemMeta meta,
+            String key,
+            PersistentDataType<T, Z> dataType,
+            Z value
+    ) {
         NamespacedKey namespacedKey = new NamespacedKey(plugin, key);
         PersistentDataContainer dataContainer = meta.getPersistentDataContainer();
-        dataContainer.set(namespacedKey, PersistentDataType.STRING, value);
+        dataContainer.set(namespacedKey, dataType, value);
     }
 
     @Override
-    public void addNamespacedKeyStringToItemStack(JavaPlugin plugin, ItemStack itemStack, String key, String value) {
+    public <T, Z> void addNamespacedKeyToItemStack(
+            JavaPlugin plugin,
+            ItemStack itemStack,
+            String key,
+            PersistentDataType<T, Z> dataType,
+            Z value
+    ) {
         ItemMeta meta = itemStack.getItemMeta();
         if (meta == null) return;
 
-        addNamespacedKeyStringToItemMeta(plugin, meta, key, value);
+        addNamespacedKeyToItemMeta(plugin, meta, key, dataType, value);
         itemStack.setItemMeta(meta);
     }
 
     @Override
-    public String getNamespacedKeyValueFromItemStack(JavaPlugin plugin, ItemStack itemStack, String key) {
+    public <T, Z> Z getNamespacedKeyValueFromItemStack(
+            JavaPlugin plugin,
+            ItemStack itemStack,
+            String key,
+            PersistentDataType<T, Z> dataType
+    ) {
         if (itemStack == null) return null;
 
         ItemMeta meta = itemStack.getItemMeta();
-
         if (meta == null) return null;
 
         NamespacedKey namespacedKey = new NamespacedKey(plugin, key);
-
-        return meta.getPersistentDataContainer().get(namespacedKey, PersistentDataType.STRING);
+        return meta.getPersistentDataContainer().get(namespacedKey, dataType);
     }
 
     @Override
-    public boolean doesItemStackContainsValueForNamespacedKey(JavaPlugin plugin,
-                                                              ItemStack itemStack,
-                                                              String key,
-                                                              String value) {
-        String keyValue = getNamespacedKeyValueFromItemStack(plugin, itemStack, key);
+    public <T, Z> boolean doesItemStackContainValueForNamespacedKey(
+            JavaPlugin plugin,
+            ItemStack itemStack,
+            String key,
+            PersistentDataType<T, Z> dataType,
+            Z expectedValue
+    ) {
+        Z actualValue = getNamespacedKeyValueFromItemStack(plugin, itemStack, key, dataType);
 
-        if (keyValue == null) return false;
+        if (actualValue == null) return false;
 
-        return keyValue.equals(value);
+        return actualValue.equals(expectedValue);
     }
 
     @Override

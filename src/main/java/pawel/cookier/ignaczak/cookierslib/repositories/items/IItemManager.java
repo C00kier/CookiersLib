@@ -3,6 +3,7 @@ package pawel.cookier.ignaczak.cookierslib.repositories.items;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
@@ -13,13 +14,36 @@ public interface IItemManager {
 
     void applyEnchantmentsToItemStack(ItemStack itemStack, Map<Enchantment, Integer> enchantmentsWithLevels);
 
-    void addNamespacedKeyStringToItemMeta(JavaPlugin plugin, ItemMeta meta, String key, String value);
+    <T, Z> void addNamespacedKeyToItemMeta(
+            JavaPlugin plugin,
+            ItemMeta meta,
+            String key,
+            PersistentDataType<T, Z> dataType,
+            Z value
+    );
 
-    void addNamespacedKeyStringToItemStack(JavaPlugin plugin, ItemStack itemStack, String key, String value);
+    <T, Z> void addNamespacedKeyToItemStack(
+            JavaPlugin plugin,
+            ItemStack itemStack,
+            String key,
+            PersistentDataType<T, Z> dataType,
+            Z value
+    );
 
-    String getNamespacedKeyValueFromItemStack(JavaPlugin plugin, ItemStack itemStack, String key);
+    <T, Z> Z getNamespacedKeyValueFromItemStack(
+            JavaPlugin plugin,
+            ItemStack itemStack,
+            String key,
+            PersistentDataType<T, Z> dataType
+    );
 
-    boolean doesItemStackContainsValueForNamespacedKey(JavaPlugin plugin, ItemStack itemStack, String key, String value);
+    <T, Z> boolean doesItemStackContainValueForNamespacedKey(
+            JavaPlugin plugin,
+            ItemStack itemStack,
+            String key,
+            PersistentDataType<T, Z> dataType,
+            Z expectedValue
+    );
 
     void setDisplayNameToItemStack(ItemStack itemStack, String displayName);
 
