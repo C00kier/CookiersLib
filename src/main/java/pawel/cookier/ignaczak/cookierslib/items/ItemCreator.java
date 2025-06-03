@@ -6,8 +6,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
-import pawel.cookier.ignaczak.cookierslib.repositories.items.ItemCreator;
-import pawel.cookier.ignaczak.cookierslib.repositories.items.ItemManager;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +14,7 @@ import java.util.Map;
  * Implementation of the {@link ItemCreator} interface for generating customized {@link ItemStack} instances
  * with optional metadata such as display name, lore, enchantments, namespaced data, and model data.
  */
-public class ItemCreatorImpl implements ItemCreator {
+public class ItemCreator{
 
     private final ItemManager itemManager;
 
@@ -25,7 +23,7 @@ public class ItemCreatorImpl implements ItemCreator {
      *
      * @param itemManager the item manager used for applying additional metadata (e.g. enchantments, namespaced keys).
      */
-    public ItemCreatorImpl(ItemManager itemManager) {
+    public ItemCreator(ItemManager itemManager) {
         this.itemManager = itemManager;
     }
 
@@ -47,7 +45,6 @@ public class ItemCreatorImpl implements ItemCreator {
      * @param <Z>                   the complex type stored (e.g., Integer, String).
      * @return the fully configured {@link ItemStack}.
      */
-    @Override
     public <T, Z> ItemStack createCustomItem(Material material,
                                              String name,
                                              Integer amount,

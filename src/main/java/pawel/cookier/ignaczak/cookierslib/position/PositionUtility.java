@@ -3,7 +3,6 @@ package pawel.cookier.ignaczak.cookierslib.position;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
-import pawel.cookier.ignaczak.cookierslib.repositories.position.PositionUtility;
 
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -12,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Implementation of the {@link PositionUtility} interface for handling player-related spatial queries.
  */
-public class PositionUtilityImpl implements PositionUtility {
+public class PositionUtility{
 
     /**
      * Retrieves all players within a specified radius of a given location.
@@ -22,7 +21,6 @@ public class PositionUtilityImpl implements PositionUtility {
      * @return a {@link Set} of {@link Player} objects located within the radius
      *         of the provided position. Returns an empty set if the world is null.
      */
-    @Override
     public Set<Player> getPlayersInRadius(Location position, double radius) {
         Set<Player> playersInRadius = ConcurrentHashMap.newKeySet();
 

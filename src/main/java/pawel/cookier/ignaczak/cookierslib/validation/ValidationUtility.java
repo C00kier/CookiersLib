@@ -1,7 +1,6 @@
 package pawel.cookier.ignaczak.cookierslib.validation;
 
 import org.bukkit.Sound;
-import pawel.cookier.ignaczak.cookierslib.repositories.validation.ValidationUtility;
 
 import java.util.List;
 
@@ -9,7 +8,7 @@ import java.util.List;
  * Implementation of {@link ValidationUtility} that provides various utility methods
  * for validating common types used in plugin development.
  */
-public class ValidationUtilityImpl implements ValidationUtility {
+public class ValidationUtility{
 
     /**
      * Checks if the provided lore list is non-null.
@@ -17,7 +16,6 @@ public class ValidationUtilityImpl implements ValidationUtility {
      * @param loreList the list of lore strings
      * @return true if the list is not null, false otherwise
      */
-    @Override
     public boolean isLoreValid(List<String> loreList) {
         return loreList != null;
     }
@@ -28,7 +26,6 @@ public class ValidationUtilityImpl implements ValidationUtility {
      * @param value the string to validate
      * @return true if the string is non-null and not empty, false otherwise
      */
-    @Override
     public boolean isStringValueValid(String value) {
         return value != null && !value.isEmpty();
     }
@@ -39,7 +36,6 @@ public class ValidationUtilityImpl implements ValidationUtility {
      * @param value the Double to check
      * @return true if value is not null and ≥ 0, false otherwise
      */
-    @Override
     public boolean isDoublePositiveOrZero(Double value) {
         return value != null && value >= 0;
     }
@@ -50,7 +46,6 @@ public class ValidationUtilityImpl implements ValidationUtility {
      * @param value the int to check
      * @return true if value ≥ 0, false otherwise
      */
-    @Override
     public boolean isIntPositiveOrZero(int value) {
         return value >= 0;
     }
@@ -61,7 +56,6 @@ public class ValidationUtilityImpl implements ValidationUtility {
      * @param sound the sound to validate
      * @return true if sound is not null, false otherwise
      */
-    @Override
     public boolean isSoundValid(Sound sound) {
         return sound != null;
     }
@@ -73,7 +67,6 @@ public class ValidationUtilityImpl implements ValidationUtility {
      * @param args     the actual arguments array
      * @return true if the length of args equals quantity, false otherwise
      */
-    @Override
     public boolean hasCorrectArgsQuantity(int quantity, String[] args) {
         return args.length == quantity;
     }

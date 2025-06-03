@@ -3,7 +3,6 @@ package pawel.cookier.ignaczak.cookierslib.commands;
 import org.bukkit.command.*;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
-import pawel.cookier.ignaczak.cookierslib.repositories.commands.CommandsUtility;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -13,14 +12,7 @@ import java.util.Objects;
 import static org.bukkit.Bukkit.getLogger;
 import static org.bukkit.Bukkit.getServer;
 
-/**
- * Implementation of {@link CommandsUtility} that provides methods
- * for registering commands and tab completers in a Bukkit-based plugin.
- *
- * <p>This includes both static command registration (defined in plugin.yml)
- * and dynamic command registration via reflection.</p>
- */
-public class CommandsUtilityImpl implements CommandsUtility {
+public class CommandsUtility {
 
     /**
      * Registers a command from plugin.yml with both a {@link CommandExecutor}
@@ -32,7 +24,6 @@ public class CommandsUtilityImpl implements CommandsUtility {
      * @param tabCompleter The logic for tab completion suggestions.
      * @throws NullPointerException if the command is not found in plugin.yml.
      */
-    @Override
     public void registerCommandWithTabCompleter(JavaPlugin plugin, String commandName, CommandExecutor executor, TabCompleter tabCompleter) {
         Objects.requireNonNull(plugin.getCommand(commandName),
                 "Command not found: " + commandName).setExecutor(executor);
@@ -48,7 +39,6 @@ public class CommandsUtilityImpl implements CommandsUtility {
      * @param executor    The logic to execute when the command is run.
      * @throws NullPointerException if the command is not found in plugin.yml.
      */
-    @Override
     public void registerCommandWithoutTabCompleter(JavaPlugin plugin, String commandName, CommandExecutor executor) {
         Objects.requireNonNull(plugin.getCommand(commandName),
                 "Command not found: " + commandName).setExecutor(executor);
@@ -64,7 +54,6 @@ public class CommandsUtilityImpl implements CommandsUtility {
      * @param permissions A list of required permissions. If null or empty, the command is unrestricted.
      * @param plugin      The plugin instance registering the command.
      */
-    @Override
     public void registerDynamicCommand(String commandName, CommandExecutor executor, TabCompleter tabCompleter, List<String> permissions, JavaPlugin plugin) {
         try {
             Field commandMapField = getServer().getClass().getDeclaredField("commandMap");

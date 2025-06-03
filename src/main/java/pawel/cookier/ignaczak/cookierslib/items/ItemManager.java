@@ -9,7 +9,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
-import pawel.cookier.ignaczak.cookierslib.repositories.items.ItemManager;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +18,7 @@ import java.util.Map;
  * Implementation of {@link ItemManager} responsible for managing custom item properties
  * such as enchantments, display names, lore, and namespaced data.
  */
-public class ItemManagerImpl implements ItemManager {
+public class ItemManager{
 
     /**
      * Applies enchantments to an {@link ItemMeta} object.
@@ -27,7 +26,6 @@ public class ItemManagerImpl implements ItemManager {
      * @param meta the item meta to modify.
      * @param enchantmentsWithLevels a map of enchantments and their corresponding levels.
      */
-    @Override
     public void applyEnchantmentsToItemMeta(ItemMeta meta, Map<Enchantment, Integer> enchantmentsWithLevels) {
         for (Enchantment enchantment : enchantmentsWithLevels.keySet()) {
             int enchantmentLevel = enchantmentsWithLevels.get(enchantment);
@@ -43,7 +41,6 @@ public class ItemManagerImpl implements ItemManager {
      * @param itemStack the item to enchant.
      * @param enchantmentsWithLevels a map of enchantments and their corresponding levels.
      */
-    @Override
     public void applyEnchantmentsToItemStack(ItemStack itemStack, Map<Enchantment, Integer> enchantmentsWithLevels) {
         ItemMeta meta = itemStack.getItemMeta();
         if (meta == null) return;
@@ -61,7 +58,6 @@ public class ItemManagerImpl implements ItemManager {
      * @param dataType the {@link PersistentDataType} for the value.
      * @param value the value to store.
      */
-    @Override
     public <T, Z> void addNamespacedKeyToItemMeta(
             JavaPlugin plugin,
             ItemMeta meta,
@@ -83,7 +79,6 @@ public class ItemManagerImpl implements ItemManager {
      * @param dataType the {@link PersistentDataType}.
      * @param value the value to store.
      */
-    @Override
     public <T, Z> void addNamespacedKeyToItemStack(
             JavaPlugin plugin,
             ItemStack itemStack,
@@ -107,7 +102,6 @@ public class ItemManagerImpl implements ItemManager {
      * @param dataType the data type expected.
      * @return the stored value or {@code null} if not found.
      */
-    @Override
     public <T, Z> Z getNamespacedKeyValueFromItemStack(
             JavaPlugin plugin,
             ItemStack itemStack,
@@ -133,7 +127,6 @@ public class ItemManagerImpl implements ItemManager {
      * @param expectedValue the expected value.
      * @return {@code true} if the value matches; otherwise, {@code false}.
      */
-    @Override
     public <T, Z> boolean doesItemStackContainValueForNamespacedKey(
             JavaPlugin plugin,
             ItemStack itemStack,
@@ -154,7 +147,6 @@ public class ItemManagerImpl implements ItemManager {
      * @param itemStack the item to modify.
      * @param displayName the new display name.
      */
-    @Override
     public void setDisplayNameToItemStack(ItemStack itemStack, String displayName) {
         ItemMeta meta = itemStack.getItemMeta();
 
@@ -169,7 +161,6 @@ public class ItemManagerImpl implements ItemManager {
      *
      * @param itemStack the item to modify.
      */
-    @Override
     public void setEmptyStringAsDisplayName(ItemStack itemStack) {
         setDisplayNameToItemStack(itemStack, String.valueOf(ChatColor.DARK_GRAY));
     }
@@ -180,7 +171,6 @@ public class ItemManagerImpl implements ItemManager {
      * @param itemStack the item to modify.
      * @param lore the lore lines.
      */
-    @Override
     public void setLoreToItemStack(ItemStack itemStack, List<String> lore){
         ItemMeta meta = itemStack.getItemMeta();
         if(meta == null) return;
@@ -195,7 +185,6 @@ public class ItemManagerImpl implements ItemManager {
      * @param item2 the second item.
      * @return {@code true} if enchantments are equal; otherwise, {@code false}.
      */
-    @Override
     public boolean hasItemStacksSameEnchantments(ItemStack item1, ItemStack item2) {
         if (item1 == null || item2 == null) {
             return false;
@@ -231,7 +220,6 @@ public class ItemManagerImpl implements ItemManager {
      * @param list2 the second list.
      * @return {@code true} if the lists are equivalent; otherwise, {@code false}.
      */
-    @Override
     public boolean areItemStackListsEqual(List<ItemStack> list1, List<ItemStack> list2) {
         Map<ItemStack, Integer> combinedList1 = combineItemStacks(list1);
         Map<ItemStack, Integer> combinedList2 = combineItemStacks(list2);

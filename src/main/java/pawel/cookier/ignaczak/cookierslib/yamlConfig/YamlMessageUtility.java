@@ -2,7 +2,6 @@ package pawel.cookier.ignaczak.cookierslib.yamlConfig;
 
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
-import pawel.cookier.ignaczak.cookierslib.repositories.yamlConfig.YamlMessageUtility;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +10,7 @@ import java.util.stream.Collectors;
  * Implementation of {@link YamlMessageUtility} for retrieving and colorizing
  * messages from a YAML configuration file.
  */
-public class YamlMessageUtilityImpl implements YamlMessageUtility {
+public class YamlMessageUtility{
 
     /**
      * Retrieves and colorizes a string message from the config by a given key.
@@ -21,7 +20,6 @@ public class YamlMessageUtilityImpl implements YamlMessageUtility {
      * @return the colorized message, or a formatted error message if the key is not found
      * @throws IllegalStateException if config is null
      */
-    @Override
     public String getColorizedMessage(FileConfiguration config, String key) {
         if (config == null) {
             throw new IllegalStateException("YamlMessageUtility: FileConfiguration has not been set!");
@@ -41,7 +39,6 @@ public class YamlMessageUtilityImpl implements YamlMessageUtility {
      * @return the colorized message
      * @throws IllegalStateException if config is null
      */
-    @Override
     public String getColorizedMessage(FileConfiguration config, String key, String defaultMessage) {
         if (config == null) {
             throw new IllegalStateException("YamlMessageUtility: FileConfiguration has not been set!");
@@ -58,7 +55,6 @@ public class YamlMessageUtilityImpl implements YamlMessageUtility {
      * @return a list of colorized messages
      * @throws IllegalStateException if config is null
      */
-    @Override
     public List<String> getColorizedMessagesFromList(FileConfiguration config, String key) {
         if (config == null) {
             throw new IllegalStateException("YamlMessageUtility: FileConfiguration has not been set!");

@@ -4,7 +4,6 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import pawel.cookier.ignaczak.cookierslib.repositories.inventory.InventoryUtility;
 
 import java.util.Optional;
 
@@ -13,7 +12,7 @@ import java.util.Optional;
  * Implementation of the {@link InventoryUtility} interface providing various utility
  * methods for interacting with and manipulating player inventories and Bukkit inventories.
  */
-public class InventoryUtilityImpl implements InventoryUtility {
+public class InventoryUtility{
 
     /**
      * Checks whether the player has at least one empty slot in their inventory.
@@ -21,7 +20,6 @@ public class InventoryUtilityImpl implements InventoryUtility {
      * @param player the player whose inventory will be checked.
      * @return true if an empty slot is found, false otherwise.
      */
-    @Override
     public boolean hasEmptyInventorySlot(Player player) {
         Inventory inventory = player.getInventory();
 
@@ -35,7 +33,6 @@ public class InventoryUtilityImpl implements InventoryUtility {
      * @param targetItem  the item to look for.
      * @return an {@link Optional} containing the index if found, or empty if not found.
      */
-    @Override
     public Optional<Integer> getSlotIndexBasedOnItemStack(Player player, ItemStack targetItem){
         ItemStack[] contents = player.getInventory().getContents();
 
@@ -60,7 +57,6 @@ public class InventoryUtilityImpl implements InventoryUtility {
      * @param inventory the inventory to fill.
      * @param itemStack the item to populate the inventory with.
      */
-    @Override
     public void populateInventoryWithItemStack(Inventory inventory, ItemStack itemStack){
         for (int i = 0; i < inventory.getSize(); i++) {
             inventory.setItem(i, itemStack);
@@ -73,7 +69,6 @@ public class InventoryUtilityImpl implements InventoryUtility {
      * @param inventory the inventory to partially populate.
      * @param itemStack the item to place in empty slots.
      */
-    @Override
     public void populateEmptySpacesWithItemStack(Inventory inventory, ItemStack itemStack){
         for (int i = 0; i < inventory.getSize(); i++) {
             if (inventory.getItem(i) != null) continue;
@@ -89,7 +84,6 @@ public class InventoryUtilityImpl implements InventoryUtility {
      * @param neededAmount  the required quantity.
      * @return true if the player has at least the needed amount, false otherwise.
      */
-    @Override
     public boolean hasEnoughMaterialInInventory(Player player, Material material, int neededAmount) {
         int totalAmount = 0;
         for (ItemStack item : player.getInventory().getContents()) {
@@ -111,7 +105,6 @@ public class InventoryUtilityImpl implements InventoryUtility {
      * @param material       the material to remove.
      * @param amountToRemove the total amount to remove.
      */
-    @Override
     public void removeMaterialFromInventory(Player player, Material material, int amountToRemove) {
         ItemStack[] contents = player.getInventory().getContents();
 
