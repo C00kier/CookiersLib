@@ -15,8 +15,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Implementation of {@link ItemManager} responsible for managing custom item properties
+ * such as enchantments, display names, lore, and namespaced data.
+ */
 public class ItemManagerImpl implements ItemManager {
 
+    /**
+     * Applies enchantments to an {@link ItemMeta} object.
+     *
+     * @param meta the item meta to modify.
+     * @param enchantmentsWithLevels a map of enchantments and their corresponding levels.
+     */
     @Override
     public void applyEnchantmentsToItemMeta(ItemMeta meta, Map<Enchantment, Integer> enchantmentsWithLevels) {
         for (Enchantment enchantment : enchantmentsWithLevels.keySet()) {
@@ -27,6 +37,12 @@ public class ItemManagerImpl implements ItemManager {
         }
     }
 
+    /**
+     * Applies enchantments directly to an {@link ItemStack}.
+     *
+     * @param itemStack the item to enchant.
+     * @param enchantmentsWithLevels a map of enchantments and their corresponding levels.
+     */
     @Override
     public void applyEnchantmentsToItemStack(ItemStack itemStack, Map<Enchantment, Integer> enchantmentsWithLevels) {
         ItemMeta meta = itemStack.getItemMeta();
@@ -36,6 +52,15 @@ public class ItemManagerImpl implements ItemManager {
         itemStack.setItemMeta(meta);
     }
 
+    /**
+     * Adds a namespaced key-value pair to an {@link ItemMeta}.
+     *
+     * @param plugin the plugin instance used to create the key.
+     * @param meta the item meta to modify.
+     * @param key the key name.
+     * @param dataType the {@link PersistentDataType} for the value.
+     * @param value the value to store.
+     */
     @Override
     public <T, Z> void addNamespacedKeyToItemMeta(
             JavaPlugin plugin,
@@ -49,6 +74,15 @@ public class ItemManagerImpl implements ItemManager {
         dataContainer.set(namespacedKey, dataType, value);
     }
 
+    /**
+     * Adds a namespaced key-value pair directly to an {@link ItemStack}.
+     *
+     * @param plugin the plugin instance.
+     * @param itemStack the item to modify.
+     * @param key the key name.
+     * @param dataType the {@link PersistentDataType}.
+     * @param value the value to store.
+     */
     @Override
     public <T, Z> void addNamespacedKeyToItemStack(
             JavaPlugin plugin,
@@ -64,6 +98,15 @@ public class ItemManagerImpl implements ItemManager {
         itemStack.setItemMeta(meta);
     }
 
+    /**
+     * Retrieves a value from an {@link ItemStack}'s persistent data container using a namespaced key.
+     *
+     * @param plugin the plugin instance.
+     * @param itemStack the item to read.
+     * @param key the key to look for.
+     * @param dataType the data type expected.
+     * @return the stored value or {@code null} if not found.
+     */
     @Override
     public <T, Z> Z getNamespacedKeyValueFromItemStack(
             JavaPlugin plugin,
@@ -80,6 +123,16 @@ public class ItemManagerImpl implements ItemManager {
         return meta.getPersistentDataContainer().get(namespacedKey, dataType);
     }
 
+    /**
+     * Checks if a given {@link ItemStack} contains a specific value under a namespaced key.
+     *
+     * @param plugin the plugin instance.
+     * @param itemStack the item to check.
+     * @param key the key to look for.
+     * @param dataType the data type used.
+     * @param expectedValue the expected value.
+     * @return {@code true} if the value matches; otherwise, {@code false}.
+     */
     @Override
     public <T, Z> boolean doesItemStackContainValueForNamespacedKey(
             JavaPlugin plugin,
@@ -95,6 +148,12 @@ public class ItemManagerImpl implements ItemManager {
         return actualValue.equals(expectedValue);
     }
 
+    /**
+     * Sets the display name of an {@link ItemStack}.
+     *
+     * @param itemStack the item to modify.
+     * @param displayName the new display name.
+     */
     @Override
     public void setDisplayNameToItemStack(ItemStack itemStack, String displayName) {
         ItemMeta meta = itemStack.getItemMeta();
@@ -105,11 +164,22 @@ public class ItemManagerImpl implements ItemManager {
         }
     }
 
+    /**
+     * Sets an empty colored string as the display name.
+     *
+     * @param itemStack the item to modify.
+     */
     @Override
     public void setEmptyStringAsDisplayName(ItemStack itemStack) {
         setDisplayNameToItemStack(itemStack, String.valueOf(ChatColor.DARK_GRAY));
     }
 
+    /**
+     * Sets the lore (hover text) on an {@link ItemStack}.
+     *
+     * @param itemStack the item to modify.
+     * @param lore the lore lines.
+     */
     @Override
     public void setLoreToItemStack(ItemStack itemStack, List<String> lore){
         ItemMeta meta = itemStack.getItemMeta();
@@ -118,6 +188,13 @@ public class ItemManagerImpl implements ItemManager {
         itemStack.setItemMeta(meta);
     }
 
+    /**
+     * Compares whether two {@link ItemStack}s have identical enchantments.
+     *
+     * @param item1 the first item.
+     * @param item2 the second item.
+     * @return {@code true} if enchantments are equal; otherwise, {@code false}.
+     */
     @Override
     public boolean hasItemStacksSameEnchantments(ItemStack item1, ItemStack item2) {
         if (item1 == null || item2 == null) {
@@ -147,6 +224,13 @@ public class ItemManagerImpl implements ItemManager {
         return enchantments1.equals(enchantments2);
     }
 
+    /**
+     * Compares whether two lists of {@link ItemStack}s contain the same items and quantities.
+     *
+     * @param list1 the first list.
+     * @param list2 the second list.
+     * @return {@code true} if the lists are equivalent; otherwise, {@code false}.
+     */
     @Override
     public boolean areItemStackListsEqual(List<ItemStack> list1, List<ItemStack> list2) {
         Map<ItemStack, Integer> combinedList1 = combineItemStacks(list1);
@@ -173,6 +257,13 @@ public class ItemManagerImpl implements ItemManager {
         return true;
     }
 
+    /**
+     * Combines a list of {@link ItemStack}s into a map with single-item keys and total quantities as values.
+     * Used for inventory comparison.
+     *
+     * @param items the list to combine.
+     * @return a map of unique {@link ItemStack}s to their total amount.
+     */
     private Map<ItemStack, Integer> combineItemStacks(List<ItemStack> items) {
         Map<ItemStack, Integer> combinedItems = new HashMap<>();
 
