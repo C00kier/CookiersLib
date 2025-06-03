@@ -1,4 +1,4 @@
-## CookiersLib 1.0.9r
+## CookiersLib 1.0.9s
 
 It is a library containing the most frequently repeated functions during my adventure with writing plugins.
 

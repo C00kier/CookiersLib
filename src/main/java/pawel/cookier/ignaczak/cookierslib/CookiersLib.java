@@ -8,7 +8,9 @@ import pawel.cookier.ignaczak.cookierslib.position.PositionUtility;
 import pawel.cookier.ignaczak.cookierslib.validation.ValidationUtility;
 import pawel.cookier.ignaczak.cookierslib.yamlConfig.YamlMessageUtility;
 
-public class CookiersLib {
+public final class CookiersLib {
+
+    private static CookiersLib instance;
 
     private final ItemManager itemManager;
     private final ItemCreator itemCreator;
@@ -18,7 +20,7 @@ public class CookiersLib {
     private final CommandsUtility commandsUtility;
     private final YamlMessageUtility yamlMessageUtility;
 
-    public CookiersLib() {
+    private CookiersLib() {
         this.itemManager = new ItemManager();
         this.itemCreator = new ItemCreator(itemManager);
         this.positionUtility = new PositionUtility();
@@ -26,6 +28,13 @@ public class CookiersLib {
         this.inventoryUtility = new InventoryUtility();
         this.commandsUtility = new CommandsUtility();
         this.yamlMessageUtility = new YamlMessageUtility();
+    }
+
+    public static CookiersLib getInstance() {
+        if (instance == null) {
+            instance = new CookiersLib();
+        }
+        return instance;
     }
 
     public YamlMessageUtility getYamlMessageUtility() {
