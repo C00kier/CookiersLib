@@ -1,6 +1,7 @@
 ## CookiersLib 1.1.0
-
-It is a library containing the most frequently repeated functions during my plugin adventures .
+Minecraft library
+***
+It's a library containing the most frequently used by me functions during my plugin adventures .
 
 ## Wiki
 
