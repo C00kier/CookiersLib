@@ -4,6 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 import pawel.cookier.ignaczak.cookierslib.repositories.items.IITemCreator;
 
@@ -19,19 +20,19 @@ public class ItemCreator implements IITemCreator {
     }
 
     @Override
-    public ItemStack createCustomItem(Material material,
-                                      String name,
-                                      Integer amount,
-                                      List<String> lore,
-                                      Map<Enchantment, Integer> enchantmentsWithLevels,
-                                      String namespacedKey,
-                                      String namespacedValue,
-                                      Integer customModelId,
-                                      JavaPlugin yourPlugin) {
+    public <T, Z> ItemStack createCustomItem(Material material,
+                                             String name,
+                                             Integer amount,
+                                             List<String> lore,
+                                             Map<Enchantment, Integer> enchantmentsWithLevels,
+                                             String namespacedKey,
+                                             Z namespacedValue,
+                                             PersistentDataType<T, Z> dataType,
+                                             Integer customModelId,
+                                             JavaPlugin yourPlugin) {
 
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
-
 
         if (amount != null) {
             item.setAmount(amount);
@@ -49,17 +50,21 @@ public class ItemCreator implements IITemCreator {
             meta.setLore(lore);
         }
 
-        if(enchantmentsWithLevels != null) {
-            if (enchantmentsWithLevels.size() > 0) {
-                itemManager.applyEnchantmentsToItemMeta(meta, enchantmentsWithLevels);
-            }
+        if (enchantmentsWithLevels != null && !enchantmentsWithLevels.isEmpty()) {
+            itemManager.applyEnchantmentsToItemMeta(meta, enchantmentsWithLevels);
         }
 
-        if (namespacedKey != null && namespacedValue != null && yourPlugin != null) {
-            itemManager.addNamespacedKeyStringToItemMeta(yourPlugin, meta, namespacedKey, namespacedValue);
+        if (namespacedKey != null && namespacedValue != null && yourPlugin != null && dataType != null) {
+            itemManager.addNamespacedKeyToItemMeta(
+                    yourPlugin,
+                    meta,
+                    namespacedKey,
+                    dataType,
+                    namespacedValue
+            );
         }
 
-        if(customModelId != null){
+        if (customModelId != null) {
             meta.setCustomModelData(customModelId);
         }
 
@@ -67,5 +72,4 @@ public class ItemCreator implements IITemCreator {
 
         return item;
     }
-
 }
