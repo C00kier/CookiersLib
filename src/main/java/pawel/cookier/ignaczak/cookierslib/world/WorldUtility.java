@@ -4,9 +4,6 @@ import org.bukkit.GameRule;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
-/**
- * Implementation of {@link WorldUtility} for interacting with world-related settings and utilities.
- */
 public class WorldUtility{
 
     /**

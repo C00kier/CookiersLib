@@ -8,9 +8,6 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-/**
- * Implementation of the {@link PositionUtility} interface for handling player-related spatial queries.
- */
 public class PositionUtility{
 
     /**

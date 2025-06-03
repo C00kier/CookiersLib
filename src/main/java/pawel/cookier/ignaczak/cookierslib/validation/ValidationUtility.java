@@ -4,10 +4,6 @@ import org.bukkit.Sound;
 
 import java.util.List;
 
-/**
- * Implementation of {@link ValidationUtility} that provides various utility methods
- * for validating common types used in plugin development.
- */
 public class ValidationUtility{
 
     /**

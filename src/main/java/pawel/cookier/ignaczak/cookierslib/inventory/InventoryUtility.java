@@ -8,10 +8,6 @@ import org.bukkit.inventory.ItemStack;
 import java.util.Optional;
 
 
-/**
- * Implementation of the {@link InventoryUtility} interface providing various utility
- * methods for interacting with and manipulating player inventories and Bukkit inventories.
- */
 public class InventoryUtility{
 
     /**

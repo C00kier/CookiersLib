@@ -14,10 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Implementation of {@link ItemManager} responsible for managing custom item properties
- * such as enchantments, display names, lore, and namespaced data.
- */
 public class ItemManager{
 
     /**

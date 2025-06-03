@@ -6,10 +6,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Implementation of {@link YamlMessageUtility} for retrieving and colorizing
- * messages from a YAML configuration file.
- */
 public class YamlMessageUtility{
 
     /**

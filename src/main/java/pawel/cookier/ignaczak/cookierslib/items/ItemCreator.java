@@ -10,10 +10,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Implementation of the {@link ItemCreator} interface for generating customized {@link ItemStack} instances
- * with optional metadata such as display name, lore, enchantments, namespaced data, and model data.
- */
 public class ItemCreator{
 
     private final ItemManager itemManager;
