@@ -1,78 +1,24 @@
 ## CookiersLib 1.1.0
 
-It is a library containing the most frequently repeated functions during my adventure with writing plugins.
+It is a library containing the most frequently repeated functions during my plugin adventures .
 
-## Features
+## Wiki
 
-#### Inventory utilities:
-- check if player has empty slot in inventory
-- find index of first empty slot in inventory
-- find index of itemStack in players inventory
-- populate inventory with ItemStack
+Go to: [**Wiki**](https://github.com/C00kier/CookiersLib/wiki)
 
-#### Position utilities:
-- get set of players that are in radius of passed location
 
-#### Item creator:
-- create custom item
+**Content**:
+1. [**Commands Utility**](https://github.com/C00kier/CookiersLib/wiki/Commands-Utility)
+1. [**Inventory Utility**](https://github.com/C00kier/CookiersLib/wiki/Inventory-Utility)
+1. [**Item Creator**](https://github.com/C00kier/CookiersLib/wiki/Item-Creator)
+1. [**Item Manager**](https://github.com/C00kier/CookiersLib/wiki/Item-Manager)
+1. [**Custom Config**](https://github.com/C00kier/CookiersLib/wiki/Custom-Config)
+1. [**Position Utility**](https://github.com/C00kier/CookiersLib/wiki/Position-Utility)
+1. [**Validation Utility**](https://github.com/C00kier/CookiersLib/wiki/Validation-Utility)
+1. [**World Utility**](https://github.com/C00kier/CookiersLib/wiki/World-Utility)
+1. [**Yaml Message Utility**](https://github.com/C00kier/CookiersLib/wiki/Yaml-Message-Utility)
 
-#### Item manager:
-- apply enchantments to item meta
-- apply enchantments to item stack
-- add namespaced key to item meta
-- add namespaced key to item stack
-- get namespaced key value from item
-- check if item has specific value for specific namespaced key
-- set item display name
-- set empty item display name
-- set lore to item stack
-- check if 2 items has same enchantments
-- check if 2 lists contains same itemstacks
-
-#### Validation utilities:
-- check if lore is valid
-- check if the string value is valid
-- check if double is positive or zero
-- check if int is positive or zero
-- check if the sound is valid
-- check if the args have correct quantity
-
-#### Commands Utilities
-- register commands with tab completer
-- register commands without tab completer
-- register command dynamically without using plugin.yml
-
-#### Yaml config utilities (FileConfiguration Object utilities)
-- function for colorize String via config with usage of "&" sign
-- function for colorize List of Stings via config with usage of "&" sign
-
-#### World Utilities
-- check if player is in world with keepInventory set true
-
-## Models
-- CustomConfig model
-
-## How to use
-Just paste this code into your project and you will have access to all utilities
-
-CookiersLib cookiersLib = new CookiersLib();
-
-### How to use utilities?
-eg. i want to get to use function for creating item so after lib initialization i can simply write:
-<br>
-<br>
-cookiersLib.getItemCreator().createCustomItem(...);
-
-### How to use models?
-CustomConfig config = new CustomConfig(plugin, fileName);
-
-It will create config with fileName into plugin folder.
-Simply add fileName.yaml to project resources and you are ready to go!
+***
 
 ### Licence: MIT
-
-#### How to add (click on icon below) 
-versions below 1.0.3 may produce some issues
-<br>
-<br>
 [![](https://jitpack.io/v/C00kier/CookiersLib.svg)](https://jitpack.io/#C00kier/CookiersLib)
