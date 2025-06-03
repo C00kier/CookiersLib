@@ -13,8 +13,25 @@ import java.util.Objects;
 import static org.bukkit.Bukkit.getLogger;
 import static org.bukkit.Bukkit.getServer;
 
+/**
+ * Implementation of {@link CommandsUtility} that provides methods
+ * for registering commands and tab completers in a Bukkit-based plugin.
+ *
+ * <p>This includes both static command registration (defined in plugin.yml)
+ * and dynamic command registration via reflection.</p>
+ */
 public class CommandsUtilityImpl implements CommandsUtility {
 
+    /**
+     * Registers a command from plugin.yml with both a {@link CommandExecutor}
+     * and a {@link TabCompleter}.
+     *
+     * @param plugin       The JavaPlugin instance.
+     * @param commandName  The name of the command as defined in plugin.yml.
+     * @param executor     The logic to execute when the command is run.
+     * @param tabCompleter The logic for tab completion suggestions.
+     * @throws NullPointerException if the command is not found in plugin.yml.
+     */
     @Override
     public void registerCommandWithTabCompleter(JavaPlugin plugin, String commandName, CommandExecutor executor, TabCompleter tabCompleter) {
         Objects.requireNonNull(plugin.getCommand(commandName),
@@ -23,12 +40,30 @@ public class CommandsUtilityImpl implements CommandsUtility {
                 "Command not found: " + commandName).setTabCompleter(tabCompleter);
     }
 
+    /**
+     * Registers a command from plugin.yml with only a {@link CommandExecutor}.
+     *
+     * @param plugin      The JavaPlugin instance.
+     * @param commandName The name of the command as defined in plugin.yml.
+     * @param executor    The logic to execute when the command is run.
+     * @throws NullPointerException if the command is not found in plugin.yml.
+     */
     @Override
     public void registerCommandWithoutTabCompleter(JavaPlugin plugin, String commandName, CommandExecutor executor) {
         Objects.requireNonNull(plugin.getCommand(commandName),
                 "Command not found: " + commandName).setExecutor(executor);
     }
 
+    /**
+     * Dynamically registers a command at runtime using reflection, without requiring plugin.yml entry.
+     * Includes permission checks and optional tab completion.
+     *
+     * @param commandName The name of the command.
+     * @param executor    The command logic to be executed.
+     * @param tabCompleter The tab completer logic for suggestions.
+     * @param permissions A list of required permissions. If null or empty, the command is unrestricted.
+     * @param plugin      The plugin instance registering the command.
+     */
     @Override
     public void registerDynamicCommand(String commandName, CommandExecutor executor, TabCompleter tabCompleter, List<String> permissions, JavaPlugin plugin) {
         try {
