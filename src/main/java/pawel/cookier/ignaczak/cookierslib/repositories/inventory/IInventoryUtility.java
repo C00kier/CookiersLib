@@ -4,12 +4,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Optional;
+
 public interface IInventoryUtility{
     boolean hasEmptyInventorySlot(Player player);
 
-    Integer getFirstEmptySlotIndex(Player player);
-
-    Integer getSlotIndexBasedOnItemStack(Player player, ItemStack targetItem);
+    Optional<Integer> getSlotIndexBasedOnItemStack(Player player, ItemStack targetItem);
 
     void populateInventoryWithItemStack(Inventory inventory, ItemStack itemStack);
+
+    void populateEmptySpacesWithItemStack(Inventory inventory, ItemStack itemStack);
 }

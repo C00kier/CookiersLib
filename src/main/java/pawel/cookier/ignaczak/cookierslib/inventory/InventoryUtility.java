@@ -6,6 +6,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import pawel.cookier.ignaczak.cookierslib.repositories.inventory.IInventoryUtility;
 
+import java.util.Optional;
+
 public class InventoryUtility implements IInventoryUtility {
 
     @Override
@@ -16,14 +18,7 @@ public class InventoryUtility implements IInventoryUtility {
     }
 
     @Override
-    public Integer getFirstEmptySlotIndex(Player player) {
-        Inventory inventory = player.getInventory();
-
-        return inventory.firstEmpty();
-    }
-
-    @Override
-    public Integer getSlotIndexBasedOnItemStack(Player player, ItemStack targetItem){
+    public Optional<Integer> getSlotIndexBasedOnItemStack(Player player, ItemStack targetItem){
         ItemStack[] contents = player.getInventory().getContents();
 
         for (int i = 0; i < contents.length; i++) {
@@ -34,16 +29,24 @@ public class InventoryUtility implements IInventoryUtility {
             }
 
             if (currentItem.equals(targetItem)) {
-                return i;
+                return Optional.of(i);
             }
         }
 
-        return null;
+        return Optional.empty();
     }
 
     @Override
     public void populateInventoryWithItemStack(Inventory inventory, ItemStack itemStack){
         for (int i = 0; i < inventory.getSize(); i++) {
+            inventory.setItem(i, itemStack);
+        }
+    }
+
+    @Override
+    public void populateEmptySpacesWithItemStack(Inventory inventory, ItemStack itemStack){
+        for (int i = 0; i < inventory.getSize(); i++) {
+            if(inventory.getItem(i) != null) continue;
             inventory.setItem(i, itemStack);
         }
     }
