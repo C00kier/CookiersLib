@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.List;
 import java.util.Map;
 
-public interface IItemManager {
+public interface ItemManager {
     void applyEnchantmentsToItemMeta(ItemMeta meta, Map<Enchantment, Integer> enchantmentsWithLevels);
 
     void applyEnchantmentsToItemStack(ItemStack itemStack, Map<Enchantment, Integer> enchantmentsWithLevels);

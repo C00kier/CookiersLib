@@ -2,6 +2,6 @@ package pawel.cookier.ignaczak.cookierslib.repositories.world;
 
 import org.bukkit.entity.Player;
 
-public interface IWorldUtility{
+public interface WorldUtility {
     boolean isKeepInventoryEnabledOnPlayersWorld(Player player);
 }

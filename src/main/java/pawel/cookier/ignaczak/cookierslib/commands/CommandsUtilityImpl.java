@@ -3,7 +3,7 @@ package pawel.cookier.ignaczak.cookierslib.commands;
 import org.bukkit.command.*;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
-import pawel.cookier.ignaczak.cookierslib.repositories.commands.ICommandsUtility;
+import pawel.cookier.ignaczak.cookierslib.repositories.commands.CommandsUtility;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.Objects;
 import static org.bukkit.Bukkit.getLogger;
 import static org.bukkit.Bukkit.getServer;
 
-public class CommandsUtility implements ICommandsUtility {
+public class CommandsUtilityImpl implements CommandsUtility {
 
     @Override
     public void registerCommandWithTabCompleter(JavaPlugin plugin, String commandName, CommandExecutor executor, TabCompleter tabCompleter) {

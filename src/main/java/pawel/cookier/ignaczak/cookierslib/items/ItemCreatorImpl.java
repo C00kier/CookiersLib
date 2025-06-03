@@ -6,16 +6,17 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
-import pawel.cookier.ignaczak.cookierslib.repositories.items.IITemCreator;
+import pawel.cookier.ignaczak.cookierslib.repositories.items.ItemCreator;
+import pawel.cookier.ignaczak.cookierslib.repositories.items.ItemManager;
 
 import java.util.List;
 import java.util.Map;
 
-public class ItemCreator implements IITemCreator {
+public class ItemCreatorImpl implements ItemCreator {
 
     private final ItemManager itemManager;
 
-    public ItemCreator(ItemManager itemManager) {
+    public ItemCreatorImpl(ItemManager itemManager) {
         this.itemManager = itemManager;
     }
 

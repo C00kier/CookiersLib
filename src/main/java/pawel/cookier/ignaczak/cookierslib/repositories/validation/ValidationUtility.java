@@ -4,7 +4,7 @@ import org.bukkit.Sound;
 
 import java.util.List;
 
-public interface IValidationUtility {
+public interface ValidationUtility {
     boolean isLoreValid(List<String> loreList);
 
     boolean isStringValueValid(String value);

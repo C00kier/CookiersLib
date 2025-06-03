@@ -4,11 +4,11 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import pawel.cookier.ignaczak.cookierslib.repositories.inventory.IInventoryUtility;
+import pawel.cookier.ignaczak.cookierslib.repositories.inventory.InventoryUtility;
 
 import java.util.Optional;
 
-public class InventoryUtility implements IInventoryUtility {
+public class InventoryUtilityImpl implements InventoryUtility {
 
     @Override
     public boolean hasEmptyInventorySlot(Player player) {

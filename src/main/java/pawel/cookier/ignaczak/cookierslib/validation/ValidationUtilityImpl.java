@@ -1,11 +1,11 @@
 package pawel.cookier.ignaczak.cookierslib.validation;
 
 import org.bukkit.Sound;
-import pawel.cookier.ignaczak.cookierslib.repositories.validation.IValidationUtility;
+import pawel.cookier.ignaczak.cookierslib.repositories.validation.ValidationUtility;
 
 import java.util.List;
 
-public class ValidationUtility implements IValidationUtility {
+public class ValidationUtilityImpl implements ValidationUtility {
     @Override
     public boolean isLoreValid(List<String> loreList) {
         return loreList != null;

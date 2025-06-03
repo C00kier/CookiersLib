@@ -5,6 +5,6 @@ import org.bukkit.entity.Player;
 
 import java.util.Set;
 
-public interface IPositionUtility {
+public interface PositionUtility {
     Set<Player> getPlayersInRadius(Location position, double radius);
 }

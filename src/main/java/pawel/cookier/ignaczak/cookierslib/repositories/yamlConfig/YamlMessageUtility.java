@@ -4,7 +4,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.List;
 
-public interface IYamlMessageUtility {
+public interface YamlMessageUtility {
 
     String getColorizedMessage(FileConfiguration config, String key);
 

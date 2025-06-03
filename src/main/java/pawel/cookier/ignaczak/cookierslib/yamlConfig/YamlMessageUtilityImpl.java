@@ -2,12 +2,12 @@ package pawel.cookier.ignaczak.cookierslib.yamlConfig;
 
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
-import pawel.cookier.ignaczak.cookierslib.repositories.yamlConfig.IYamlMessageUtility;
+import pawel.cookier.ignaczak.cookierslib.repositories.yamlConfig.YamlMessageUtility;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class YamlMessageUtility implements IYamlMessageUtility {
+public class YamlMessageUtilityImpl implements YamlMessageUtility {
 
     @Override
     public String getColorizedMessage(FileConfiguration config, String key) {

@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.Optional;
 
-public interface IInventoryUtility{
+public interface InventoryUtility {
     boolean hasEmptyInventorySlot(Player player);
 
     Optional<Integer> getSlotIndexBasedOnItemStack(Player player, ItemStack targetItem);

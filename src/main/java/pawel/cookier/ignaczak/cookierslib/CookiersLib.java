@@ -1,12 +1,19 @@
 package pawel.cookier.ignaczak.cookierslib;
 
-import pawel.cookier.ignaczak.cookierslib.commands.CommandsUtility;
-import pawel.cookier.ignaczak.cookierslib.inventory.InventoryUtility;
-import pawel.cookier.ignaczak.cookierslib.items.ItemCreator;
-import pawel.cookier.ignaczak.cookierslib.items.ItemManager;
-import pawel.cookier.ignaczak.cookierslib.position.PositionUtility;
-import pawel.cookier.ignaczak.cookierslib.validation.ValidationUtility;
-import pawel.cookier.ignaczak.cookierslib.yamlConfig.YamlMessageUtility;
+import pawel.cookier.ignaczak.cookierslib.commands.CommandsUtilityImpl;
+import pawel.cookier.ignaczak.cookierslib.inventory.InventoryUtilityImpl;
+import pawel.cookier.ignaczak.cookierslib.items.ItemCreatorImpl;
+import pawel.cookier.ignaczak.cookierslib.items.ItemManagerImpl;
+import pawel.cookier.ignaczak.cookierslib.position.PositionUtilityImpl;
+import pawel.cookier.ignaczak.cookierslib.repositories.commands.CommandsUtility;
+import pawel.cookier.ignaczak.cookierslib.repositories.inventory.InventoryUtility;
+import pawel.cookier.ignaczak.cookierslib.repositories.items.ItemCreator;
+import pawel.cookier.ignaczak.cookierslib.repositories.items.ItemManager;
+import pawel.cookier.ignaczak.cookierslib.repositories.position.PositionUtility;
+import pawel.cookier.ignaczak.cookierslib.repositories.validation.ValidationUtility;
+import pawel.cookier.ignaczak.cookierslib.repositories.yamlConfig.YamlMessageUtility;
+import pawel.cookier.ignaczak.cookierslib.validation.ValidationUtilityImpl;
+import pawel.cookier.ignaczak.cookierslib.yamlConfig.YamlMessageUtilityImpl;
 
 public class CookiersLib {
 
@@ -19,13 +26,13 @@ public class CookiersLib {
     private final YamlMessageUtility yamlMessageUtility;
 
     public CookiersLib() {
-        this.itemManager = new ItemManager();
-        this.itemCreator = new ItemCreator(itemManager);
-        this.positionUtility = new PositionUtility();
-        this.validationUtility = new ValidationUtility();
-        this.inventoryUtility = new InventoryUtility();
-        this.commandsUtility = new CommandsUtility();
-        this.yamlMessageUtility = new YamlMessageUtility();
+        this.itemManager = new ItemManagerImpl();
+        this.itemCreator = new ItemCreatorImpl(itemManager);
+        this.positionUtility = new PositionUtilityImpl();
+        this.validationUtility = new ValidationUtilityImpl();
+        this.inventoryUtility = new InventoryUtilityImpl();
+        this.commandsUtility = new CommandsUtilityImpl();
+        this.yamlMessageUtility = new YamlMessageUtilityImpl();
     }
 
     public YamlMessageUtility getYamlMessageUtility() {

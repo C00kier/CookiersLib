@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
 
-public interface ICommandsUtility {
+public interface CommandsUtility {
     void registerCommandWithTabCompleter(JavaPlugin plugin, String commandName, CommandExecutor executor, TabCompleter tabCompleter);
 
     void registerCommandWithoutTabCompleter(JavaPlugin plugin, String commandName, CommandExecutor executor);
