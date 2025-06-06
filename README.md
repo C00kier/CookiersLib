@@ -1,4 +1,4 @@
-## CookiersLib 1.1.0
+## CookiersLib 1.1.0a
 **Bukkit library**
 ***
 It's a library containing the most frequently used by me functions during my plugin adventures .

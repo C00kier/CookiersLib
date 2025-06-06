@@ -138,6 +138,33 @@ public class ItemManager{
     }
 
     /**
+     * Checks whether the given ItemStack has a persistent data value associated with the specified NamespacedKey and data type.
+     *
+     * @param plugin     The JavaPlugin instance used to create the NamespacedKey.
+     * @param itemStack  The ItemStack to check.
+     * @param key        The string key to look for, namespaced under the plugin.
+     * @param type       The PersistentDataType to check for (e.g., PersistentDataType.STRING).
+     * @param <T>        The primitive type of the data (e.g., String, Integer).
+     * @param <Z>        The complex type of the data (e.g., String, Integer).
+     * @return {@code true} if the key exists in the item's persistent data container and is of the specified type; otherwise, {@code false}.
+     */
+    public <T, Z> boolean hasNamespacedKey(JavaPlugin plugin, ItemStack itemStack, String key, PersistentDataType<T, Z> type) {
+        if (itemStack == null || !itemStack.hasItemMeta()) {
+            return false;
+        }
+
+        ItemMeta meta = itemStack.getItemMeta();
+        if (meta == null) {
+            return false;
+        }
+
+        NamespacedKey namespacedKey = new NamespacedKey(plugin, key);
+        PersistentDataContainer container = meta.getPersistentDataContainer();
+
+        return container.has(namespacedKey, type);
+    }
+
+    /**
      * Sets the display name of an {@link ItemStack}.
      *
      * @param itemStack the item to modify.
