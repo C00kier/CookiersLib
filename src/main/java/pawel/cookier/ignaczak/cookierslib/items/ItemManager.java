@@ -136,7 +136,6 @@ public class ItemManager{
 
         return actualValue.equals(expectedValue);
     }
-
     /**
      * Checks whether the given ItemStack has a persistent data value associated with the specified NamespacedKey and data type.
      *
@@ -163,6 +162,7 @@ public class ItemManager{
 
         return container.has(namespacedKey, type);
     }
+
 
     /**
      * Sets the display name of an {@link ItemStack}.
