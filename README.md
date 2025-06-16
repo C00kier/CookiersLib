@@ -18,7 +18,7 @@ Go to: [**Wiki**](https://github.com/C00kier/CookiersLib/wiki)
 1. [**Validation Utility**](https://github.com/C00kier/CookiersLib/wiki/Validation-Utility)
 1. [**World Utility**](https://github.com/C00kier/CookiersLib/wiki/World-Utility)
 1. [**Yaml Message Utility**](https://github.com/C00kier/CookiersLib/wiki/Yaml-Message-Utility)
-1. ItemSerializer
+1. [**Item Serializer**](https://github.com/C00kier/CookiersLib/wiki/Item-Serializer-Utility)
 
 ***
 
